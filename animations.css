@@ -1,0 +1,167 @@
+/* Animation Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 {
+    transition-delay: 0.2s;
+}
+
+.delay-2 {
+    transition-delay: 0.4s;
+}
+
+.delay-3 {
+    transition-delay: 0.6s;
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scale-in.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slide-in-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slide-in-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Typing Animation */
+.typing-animation {
+    position: relative;
+    display: inline-block;
+}
+
+.typing-animation::after {
+    content: '|';
+    position: absolute;
+    right: -8px;
+    animation: typing 1s infinite;
+}
+
+@keyframes typing {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Coffee Animation */
+@keyframes pour-coffee {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 75%;
+    }
+}
+
+.coffee.animate {
+    animation: pour-coffee 2s ease-out forwards;
+}
+
+@keyframes steam {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px) scale(1.5);
+    }
+}
+
+.steam {
+    position: absolute;
+    width: 8px;
+    height: 20px;
+    background-color: var(--cream);
+    border-radius: 50%;
+    top: 0;
+    opacity: 0;
+}
+
+.steam:nth-child(1) {
+    left: 25%;
+    animation: steam 3s infinite 0.2s;
+}
+
+.steam:nth-child(2) {
+    left: 50%;
+    animation: steam 3s infinite 0.6s;
+}
+
+.steam:nth-child(3) {
+    left: 75%;
+    animation: steam 3s infinite 1s;
+}
+
+/* Progress Bar Animation */
+@keyframes fill-progress {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: var(--progress);
+    }
+}
+
+.skill-progress.animate {
+    animation: fill-progress 1.5s ease-out forwards;
+}
+
+/* Page Transition */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--medium-coffee);
+    z-index: 9999;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s ease;
+}
+
+.page-transition.active {
+    transform: scaleY(1);
+}
+
+.page-transition.exit {
+    transform-origin: bottom;
+}
